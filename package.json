@@ -10,11 +10,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geosuite/schema-templates.git"
+    "url": "git+https://github.com/TryGeoSuite/schema-templates.git"
   },
-  "homepage": "https://github.com/geosuite/schema-templates#readme",
+  "homepage": "https://github.com/TryGeoSuite/schema-templates#readme",
   "bugs": {
-    "url": "https://github.com/geosuite/schema-templates/issues"
+    "url": "https://github.com/TryGeoSuite/schema-templates/issues"
   },
   "keywords": [
     "schema.org",

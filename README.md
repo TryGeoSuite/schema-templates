@@ -106,9 +106,9 @@ paste into the provider's UI.
 
 `schema-templates` is part of a small family of zero-dependency CLIs we maintain to make Generative Engine Optimization (GEO) measurable from the terminal:
 
-- [`@geosuite/ai-crawler-bots`](https://github.com/geosuite/ai-crawler-bots) — curated AI bot user-agent list with a CLI that tells you whether GPTBot, ClaudeBot, PerplexityBot and friends can read your site and where the block came from.
-- [`@geosuite/llms-txt-generator`](https://github.com/geosuite/llms-txt-generator) — turn a `sitemap.xml` into the `llms.txt` standard from [llmstxt.org](https://llmstxt.org/), so LLMs can index your most useful pages.
-- [`@geosuite/sitemap-builder`](https://github.com/geosuite/sitemap-builder) — crawl a site and emit a valid `sitemap.xml`, for sites that ship without one.
+- [`@geosuite/ai-crawler-bots`](https://github.com/TryGeoSuite/ai-crawler-bots) — curated AI bot user-agent list with a CLI that tells you whether GPTBot, ClaudeBot, PerplexityBot and friends can read your site and where the block came from.
+- [`@geosuite/llms-txt-generator`](https://github.com/TryGeoSuite/llms-txt-generator) — turn a `sitemap.xml` into the `llms.txt` standard from [llmstxt.org](https://llmstxt.org/), so LLMs can index your most useful pages.
+- [`@geosuite/sitemap-builder`](https://github.com/TryGeoSuite/sitemap-builder) — crawl a site and emit a valid `sitemap.xml`, for sites that ship without one.
 
 The same checks are also surfaced as a hosted product at [trygeosuite.it](https://trygeosuite.it) for teams who want history, alerts, and CTAs wired into their content pipeline.
 
