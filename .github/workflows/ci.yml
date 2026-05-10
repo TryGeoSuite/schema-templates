@@ -1,27 +1,38 @@
-name: ci
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [production]
   pull_request:
-    branches: [main]
+    branches: [production]
 
 jobs:
-  validate:
+  test:
+    name: Test (Node ${{ matrix.node }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node }}
 
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
+      - name: Install
+        run: npm install --no-audit --no-fund --prefer-offline
 
-      - name: Run validate.js
-        run: node validate.js
+      - name: Lint
+        run: npm run lint
 
-      - name: Run tests
-        run: node --test "test/**/*.js"
+      - name: Validate templates
+        run: npm run validate
+
+      - name: Tests
+        run: npm test
+
+      - name: Coverage
+        if: matrix.node == 22
+        run: npm run coverage

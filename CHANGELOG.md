@@ -2,6 +2,43 @@
 
 All notable changes to this project are documented here. The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project follows semantic versioning where it makes sense for a content repository.
 
+## 0.3.0 — 2026-05-10
+
+### Changed
+
+- Version bumped to stay in sync with the other `@geosuite/*` packages
+  (all packages in the scope track the same minor version).
+
+## 0.2.3 — 2026-05-10
+
+### Added
+
+- `engines.node ">=20"` declaration in `package.json` (now consistent
+  with the rest of the @geosuite suite).
+- README: npm version + downloads + CI badges.
+- `npm run coverage` script using Node 22's built-in
+  `--experimental-test-coverage` (zero new dependencies).
+
+### Changed
+
+- CI workflow now triggers on the `production` branch (matching the
+  actual default branch) instead of `main`, runs on a Node 20+22 matrix
+  (was Node 20 only), and adds lint + coverage steps.
+
+## 0.2.2 — 2026-05-10
+
+### Changed
+
+- Republish; no source changes (resolved npm CDN propagation lag noted
+  at 0.2.1).
+
+## 0.2.1 — 2026-05-10
+
+### Added
+
+- `schema-templates` bin alias matching the npm package name so
+  `npx @geosuite/schema-templates` works without `--package=`.
+
 ## 0.2.0 — 2026-05-10
 
 ### Added (templates)

@@ -6,6 +6,11 @@
 >
 > Maintained by [GeoSuite](https://trygeosuite.it).
 
+[![CI](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml/badge.svg)](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@geosuite/schema-templates.svg)](https://www.npmjs.com/package/@geosuite/schema-templates)
+[![npm downloads](https://img.shields.io/npm/dm/@geosuite/schema-templates.svg)](https://www.npmjs.com/package/@geosuite/schema-templates)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 ## Why JSON-LD matters for GEO
 
 Generative Engine Optimization (GEO) is the practice of making your content legible to AI assistants — ChatGPT, Perplexity, Gemini, Claude, Google's AI Overviews, and the long tail of LLM-powered search surfaces. These systems do not run a full browser the way Googlebot does; they parse the markup they find. Structured data in JSON-LD is the most explicit, least ambiguous way to tell a machine what a page is about: who wrote it, what product is on offer, what steps a how-to takes, what a term means.
