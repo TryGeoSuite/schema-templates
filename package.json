@@ -1,6 +1,6 @@
 {
   "name": "@geosuite/schema-templates",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Curated, copy-paste-ready schema.org JSON-LD templates for Generative Engine Optimization (GEO).",
   "type": "module",
   "license": "MIT",
@@ -26,7 +26,8 @@
     "templates"
   ],
   "bin": {
-    "geosuite-schema": "bin/cli.js"
+    "geosuite-schema": "bin/cli.js",
+    "schema-templates": "bin/cli.js"
   },
   "scripts": {
     "lint": "node --check src/ai.js && node --check bin/cli.js && node --check validate.js && node --check test/test-validate.js && node --check test/test-ai.js",
