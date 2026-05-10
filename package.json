@@ -4,6 +4,10 @@
   "description": "Curated, copy-paste-ready schema.org JSON-LD templates for Generative Engine Optimization (GEO).",
   "type": "module",
   "license": "MIT",
+  "author": "GeoSuite (https://trygeosuite.it)",
+  "contributors": [
+    "Matteo Perino <matte97.p@gmail.com> (https://github.com/matte97p)"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/geosuite/schema-templates.git"
