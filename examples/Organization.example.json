@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Acme Analytics",
+  "legalName": "Acme Analytics S.r.l.",
+  "url": "https://acmeanalytics.it",
+  "logo": "https://acmeanalytics.it/assets/logo.png",
+  "description": "Acme Analytics è una software house italiana che sviluppa una piattaforma di product analytics pensata per i team SaaS B2B europei.",
+  "foundingDate": "2021-04-15",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Tortona 27",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "postalCode": "20144",
+    "addressCountry": "IT"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@acmeanalytics.it",
+      "telephone": "+39-02-12345678",
+      "availableLanguage": ["Italian", "English"]
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/acme-analytics-it",
+    "https://twitter.com/acmeanalyticsit",
+    "https://github.com/acme-analytics"
+  ]
+}

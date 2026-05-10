@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{EVENT_NAME}}",
+  "description": "{{EVENT_DESCRIPTION}}",
+  "startDate": "{{START_DATE_ISO}}",
+  "endDate": "{{END_DATE_ISO}}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "{{VENUE_NAME}}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{STREET_ADDRESS}}",
+      "addressLocality": "{{CITY}}",
+      "postalCode": "{{POSTAL_CODE}}",
+      "addressCountry": "{{COUNTRY_CODE}}"
+    }
+  },
+  "image": ["{{EVENT_IMAGE_URL}}"],
+  "organizer": {
+    "@type": "Organization",
+    "name": "{{ORGANIZER_NAME}}",
+    "url": "{{ORGANIZER_URL}}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{TICKET_URL}}",
+    "price": "{{TICKET_PRICE}}",
+    "priceCurrency": "{{CURRENCY}}",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "{{TICKET_VALID_FROM_ISO}}"
+  }
+}

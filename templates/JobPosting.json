@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "{{JOB_TITLE}}",
+  "description": "{{JOB_DESCRIPTION}}",
+  "datePosted": "{{DATE_POSTED_ISO}}",
+  "validThrough": "{{VALID_THROUGH_ISO}}",
+  "employmentType": "{{EMPLOYMENT_TYPE}}",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "{{COMPANY_NAME}}",
+    "sameAs": "{{COMPANY_URL}}",
+    "logo": "{{COMPANY_LOGO_URL}}"
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{STREET_ADDRESS}}",
+      "addressLocality": "{{CITY}}",
+      "addressRegion": "{{REGION}}",
+      "postalCode": "{{POSTAL_CODE}}",
+      "addressCountry": "{{COUNTRY_CODE}}"
+    }
+  },
+  "applicantLocationRequirements": {
+    "@type": "Country",
+    "name": "{{REMOTE_COUNTRY}}"
+  },
+  "jobLocationType": "{{JOB_LOCATION_TYPE}}",
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "{{CURRENCY}}",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": "{{SALARY_MIN}}",
+      "maxValue": "{{SALARY_MAX}}",
+      "unitText": "{{SALARY_UNIT}}"
+    }
+  }
+}

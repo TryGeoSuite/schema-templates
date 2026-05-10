@@ -1,0 +1,8 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowToTip",
+  "name": "Tieni il fuoco basso quando aggiungi lo zafferano",
+  "text": "Lo zafferano in pistilli perde aroma sopra i 60°C. Sciolto in poco brodo tiepido e aggiunto a fine cottura, dà più colore e profumo che messo all'inizio.",
+  "url": "https://example.com/recipes/risotto-zafferano#tip-zafferano",
+  "image": "https://example.com/recipes/risotto-zafferano/tip.jpg"
+}

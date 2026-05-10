@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{PRODUCT_NAME}}",
+  "description": "{{PRODUCT_DESCRIPTION}}",
+  "image": "{{PRODUCT_IMAGE_URL}}",
+  "sku": "{{PRODUCT_SKU}}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{BRAND_NAME}}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{PRODUCT_URL}}",
+    "price": "{{PRICE}}",
+    "priceCurrency": "{{CURRENCY}}",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{RATING_VALUE}}",
+    "reviewCount": "{{REVIEW_COUNT}}",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "{{REVIEWER_NAME}}"
+      },
+      "datePublished": "{{REVIEW_DATE_ISO}}",
+      "reviewBody": "{{REVIEW_BODY}}",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{REVIEW_RATING}}",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+  ]
+}

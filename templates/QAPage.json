@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "{{QUESTION_TEXT}}",
+    "text": "{{QUESTION_DETAIL_TEXT}}",
+    "answerCount": "{{ANSWER_COUNT}}",
+    "upvoteCount": "{{QUESTION_UPVOTES}}",
+    "dateCreated": "{{QUESTION_DATE_ISO}}",
+    "author": {
+      "@type": "Person",
+      "name": "{{QUESTION_AUTHOR}}"
+    },
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "{{ACCEPTED_ANSWER_TEXT}}",
+      "dateCreated": "{{ACCEPTED_ANSWER_DATE_ISO}}",
+      "upvoteCount": "{{ACCEPTED_ANSWER_UPVOTES}}",
+      "url": "{{ACCEPTED_ANSWER_URL}}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ACCEPTED_ANSWER_AUTHOR}}"
+      }
+    },
+    "suggestedAnswer": [
+      {
+        "@type": "Answer",
+        "text": "{{SUGGESTED_ANSWER_1_TEXT}}",
+        "dateCreated": "{{SUGGESTED_ANSWER_1_DATE_ISO}}",
+        "upvoteCount": "{{SUGGESTED_ANSWER_1_UPVOTES}}",
+        "url": "{{SUGGESTED_ANSWER_1_URL}}",
+        "author": {
+          "@type": "Person",
+          "name": "{{SUGGESTED_ANSWER_1_AUTHOR}}"
+        }
+      }
+    ]
+  }
+}

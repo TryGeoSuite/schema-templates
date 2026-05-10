@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "GEO Audit per agenzie",
+  "description": "Audit settimanale della visibilità del cliente sugli LLM, con report PDF e action item.",
+  "serviceType": "Generative Engine Optimization",
+  "provider": {
+    "@type": "Organization",
+    "name": "GeoSuite",
+    "url": "https://trygeosuite.it"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Marketing agencies"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199.00",
+    "priceCurrency": "EUR",
+    "url": "https://trygeosuite.it/pricing"
+  }
+}

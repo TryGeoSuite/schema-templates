@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Acme Analytics Pro",
+  "description": "Piano Pro di Acme Analytics: eventi illimitati, fino a 10 progetti, connettori per BigQuery e Snowflake, supporto prioritario in italiano e inglese.",
+  "image": "https://acmeanalytics.it/assets/product-pro.png",
+  "sku": "ACME-PRO-2026",
+  "brand": {
+    "@type": "Brand",
+    "name": "Acme Analytics"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://acmeanalytics.it/pricing/pro",
+    "price": "149.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "94",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Marco Bianchi"
+      },
+      "datePublished": "2026-02-09",
+      "reviewBody": "Migrare da uno strumento generalista ad Acme Analytics Pro ci ha permesso di ridurre del 40% il tempo speso a costruire report di retention. La sincronizzazione con Snowflake funziona senza intoppi.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+  ]
+}

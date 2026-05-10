@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Pasticceria Marlene",
+  "image": "https://www.pasticceriamarlene.it/og.jpg",
+  "url": "https://www.pasticceriamarlene.it",
+  "telephone": "+39 02 0000 0000",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Pellico 12",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "postalCode": "20121",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "45.4685",
+    "longitude": "9.1898"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:30",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "21:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/pasticceriamarlene",
+    "https://www.facebook.com/pasticceriamarlene",
+    "https://maps.google.com/?cid=00000"
+  ]
+}

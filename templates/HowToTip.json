@@ -1,0 +1,8 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowToTip",
+  "name": "{{TIP_NAME}}",
+  "text": "{{TIP_TEXT}}",
+  "url": "{{TIP_URL}}",
+  "image": "{{TIP_IMAGE_URL}}"
+}

@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ARTICLE_HEADLINE}}",
+  "description": "{{ARTICLE_DESCRIPTION}}",
+  "image": "{{ARTICLE_IMAGE_URL}}",
+  "url": "{{ARTICLE_URL}}",
+  "datePublished": "{{DATE_PUBLISHED_ISO}}",
+  "dateModified": "{{DATE_MODIFIED_ISO}}",
+  "inLanguage": "{{LANGUAGE_CODE}}",
+  "author": {
+    "@type": "Person",
+    "name": "{{AUTHOR_NAME}}",
+    "url": "{{AUTHOR_PROFILE_URL}}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{PUBLISHER_NAME}}",
+    "url": "{{PUBLISHER_URL}}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{PUBLISHER_LOGO_URL}}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ARTICLE_URL}}"
+  }
+}

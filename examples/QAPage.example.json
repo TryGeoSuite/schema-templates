@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "Devo sbloccare GPTBot nel mio robots.txt?",
+    "text": "GPTBot è il crawler di OpenAI per training. Sblocco o no? E cosa cambia rispetto a OAI-SearchBot?",
+    "answerCount": 2,
+    "upvoteCount": 17,
+    "dateCreated": "2026-04-08T11:32:00+02:00",
+    "author": {
+      "@type": "Person",
+      "name": "Anna T."
+    },
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Se vuoi che ChatGPT possa citare i tuoi contenuti, sblocca GPTBot e OAI-SearchBot. GPTBot copre training e link previews; OAI-SearchBot è l'indexer per ChatGPT Search. Bloccarli ti rende silenzioso su quel canale.",
+      "dateCreated": "2026-04-08T12:05:00+02:00",
+      "upvoteCount": 24,
+      "url": "https://trygeosuite.it/q/sbloccare-gptbot#a-1",
+      "author": {
+        "@type": "Person",
+        "name": "Marco P."
+      }
+    },
+    "suggestedAnswer": [
+      {
+        "@type": "Answer",
+        "text": "Dipende da cosa vuoi: bloccare il training non blocca le citazioni in tempo reale, che passano da ChatGPT-User. Cloudflare aggiunge anche un override `Managed Content` da considerare.",
+        "dateCreated": "2026-04-08T13:14:00+02:00",
+        "upvoteCount": 9,
+        "url": "https://trygeosuite.it/q/sbloccare-gptbot#a-2",
+        "author": {
+          "@type": "Person",
+          "name": "Sara V."
+        }
+      }
+    ]
+  }
+}

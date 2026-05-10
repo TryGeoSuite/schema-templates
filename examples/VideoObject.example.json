@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "How GPTBot reads your robots.txt — 4 minute walkthrough",
+  "description": "Walk through how GPTBot, ClaudeBot and PerplexityBot evaluate your robots.txt file, and what changes when you add a managed-content block.",
+  "thumbnailUrl": ["https://trygeosuite.it/videos/robots-walkthrough/thumb.jpg"],
+  "uploadDate": "2026-05-01T10:00:00+02:00",
+  "duration": "PT4M12S",
+  "contentUrl": "https://cdn.trygeosuite.it/videos/robots-walkthrough.mp4",
+  "embedUrl": "https://www.youtube.com/embed/abcdEFG12_0",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GeoSuite",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trygeosuite.it/og-logo.png"
+    }
+  },
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/WatchAction",
+    "userInteractionCount": "12480"
+  }
+}

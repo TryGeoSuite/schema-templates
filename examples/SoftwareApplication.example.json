@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Acme Analytics",
+  "url": "https://acmeanalytics.it",
+  "description": "Piattaforma di product analytics per team SaaS B2B: eventi, funnel e cohort senza dover scrivere SQL.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "softwareVersion": "3.4.0",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acme Analytics S.r.l.",
+    "url": "https://acmeanalytics.it"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "49.00",
+    "priceCurrency": "EUR",
+    "url": "https://acmeanalytics.it/pricing",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "ratingCount": "218",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

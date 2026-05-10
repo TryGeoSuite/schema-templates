@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "{{RECIPE_NAME}}",
+  "description": "{{RECIPE_DESCRIPTION}}",
+  "image": "{{RECIPE_IMAGE_URL}}",
+  "author": {
+    "@type": "Person",
+    "name": "{{AUTHOR_NAME}}"
+  },
+  "datePublished": "{{DATE_PUBLISHED_ISO}}",
+  "prepTime": "{{PREP_TIME_ISO_DURATION}}",
+  "cookTime": "{{COOK_TIME_ISO_DURATION}}",
+  "totalTime": "{{TOTAL_TIME_ISO_DURATION}}",
+  "recipeYield": "{{RECIPE_YIELD}}",
+  "recipeCategory": "{{RECIPE_CATEGORY}}",
+  "recipeCuisine": "{{RECIPE_CUISINE}}",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "{{CALORIES}}"
+  },
+  "recipeIngredient": [
+    "{{INGREDIENT_1}}",
+    "{{INGREDIENT_2}}",
+    "{{INGREDIENT_3}}"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "name": "{{STEP_1_NAME}}",
+      "text": "{{STEP_1_TEXT}}"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "{{STEP_2_NAME}}",
+      "text": "{{STEP_2_TEXT}}"
+    }
+  ]
+}

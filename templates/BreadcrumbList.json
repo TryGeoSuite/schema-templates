@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "{{CRUMB_1_NAME}}",
+      "item": "{{CRUMB_1_URL}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{CRUMB_2_NAME}}",
+      "item": "{{CRUMB_2_URL}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{CRUMB_3_NAME}}"
+    }
+  ]
+}

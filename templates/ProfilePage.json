@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "{{PROFILE_URL}}",
+  "dateCreated": "{{DATE_CREATED_ISO}}",
+  "dateModified": "{{DATE_MODIFIED_ISO}}",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "{{AUTHOR_NAME}}",
+    "alternateName": "{{AUTHOR_HANDLE}}",
+    "description": "{{AUTHOR_BIO}}",
+    "image": "{{AUTHOR_PHOTO_URL}}",
+    "jobTitle": "{{JOB_TITLE}}",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "{{EMPLOYER_NAME}}",
+      "url": "{{EMPLOYER_URL}}"
+    },
+    "sameAs": [
+      "{{LINKEDIN_URL}}",
+      "{{TWITTER_URL}}",
+      "{{GITHUB_URL}}"
+    ]
+  }
+}

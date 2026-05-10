@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{SERVICE_NAME}}",
+  "description": "{{SERVICE_DESCRIPTION}}",
+  "serviceType": "{{SERVICE_TYPE}}",
+  "provider": {
+    "@type": "Organization",
+    "name": "{{PROVIDER_NAME}}",
+    "url": "{{PROVIDER_URL}}"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "{{AREA_SERVED}}"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "{{AUDIENCE_TYPE}}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "{{PRICE}}",
+    "priceCurrency": "{{CURRENCY}}",
+    "url": "{{OFFER_URL}}"
+  }
+}

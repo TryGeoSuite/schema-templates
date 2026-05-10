@@ -1,0 +1,43 @@
+{
+  "name": "@geosuite/schema-templates",
+  "version": "0.2.0",
+  "description": "Curated, copy-paste-ready schema.org JSON-LD templates for Generative Engine Optimization (GEO).",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geosuite/schema-templates.git"
+  },
+  "homepage": "https://github.com/geosuite/schema-templates#readme",
+  "bugs": {
+    "url": "https://github.com/geosuite/schema-templates/issues"
+  },
+  "keywords": [
+    "schema.org",
+    "json-ld",
+    "structured-data",
+    "seo",
+    "geo",
+    "generative-engine-optimization",
+    "templates"
+  ],
+  "bin": {
+    "geosuite-schema": "bin/cli.js"
+  },
+  "scripts": {
+    "lint": "node --check src/ai.js && node --check bin/cli.js && node --check validate.js && node --check test/test-validate.js && node --check test/test-ai.js",
+    "validate": "node validate.js",
+    "test": "node --test \"test/**/*.js\""
+  },
+  "files": [
+    "src/",
+    "bin/",
+    "templates/",
+    "examples/",
+    "assets/",
+    "validate.js",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
+}

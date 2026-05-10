@@ -1,0 +1,53 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Risotto allo zafferano alla milanese",
+  "description": "Il classico risotto giallo con midollo e zafferano in pistilli, in 30 minuti.",
+  "image": "https://example.com/recipes/risotto-zafferano.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Marco Bianchi"
+  },
+  "datePublished": "2026-03-21",
+  "prepTime": "PT10M",
+  "cookTime": "PT20M",
+  "totalTime": "PT30M",
+  "recipeYield": "4 porzioni",
+  "recipeCategory": "Primo",
+  "recipeCuisine": "Italian",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "520 kcal"
+  },
+  "recipeIngredient": [
+    "320 g riso Carnaroli",
+    "1 bustina zafferano in pistilli",
+    "1 cipolla bianca piccola",
+    "1 L brodo di carne",
+    "60 g midollo di bue",
+    "80 g Grana Padano DOP",
+    "60 g burro"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "name": "Prepara il soffritto",
+      "text": "Trita finemente la cipolla. Sciogli il burro con il midollo e fai appassire la cipolla a fuoco basso senza colorarla."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Tosta il riso",
+      "text": "Versa il riso e tosta per 2 minuti, mescolando finché i chicchi diventano lucidi."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cottura",
+      "text": "Aggiungi un mestolo di brodo bollente alla volta, mescolando. A 5 minuti dalla fine sciogli lo zafferano in poco brodo e uniscilo al risotto."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Mantecatura",
+      "text": "Spegni il fuoco, aggiungi il Grana grattugiato e il burro freddo. Mescola energicamente, copri e lascia riposare 1 minuto prima di servire."
+    }
+  ]
+}

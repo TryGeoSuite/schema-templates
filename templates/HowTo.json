@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "{{HOWTO_TITLE}}",
+  "description": "{{HOWTO_DESCRIPTION}}",
+  "totalTime": "{{ISO8601_DURATION}}",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "{{STEP_1_NAME}}",
+      "text": "{{STEP_1_TEXT}}",
+      "image": "{{STEP_1_IMAGE_URL}}",
+      "url": "{{STEP_1_ANCHOR_URL}}"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "{{STEP_2_NAME}}",
+      "text": "{{STEP_2_TEXT}}",
+      "image": "{{STEP_2_IMAGE_URL}}",
+      "url": "{{STEP_2_ANCHOR_URL}}"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "{{STEP_3_NAME}}",
+      "text": "{{STEP_3_TEXT}}",
+      "image": "{{STEP_3_IMAGE_URL}}",
+      "url": "{{STEP_3_ANCHOR_URL}}"
+    }
+  ]
+}

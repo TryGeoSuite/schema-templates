@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "Senior GEO Strategist",
+  "description": "Owns the audit pipeline configuration for new agency clients: question blueprints, observed-query bank, scoring tuning. Italian + English mandatory.",
+  "datePosted": "2026-04-12",
+  "validThrough": "2026-06-12T23:59:00+02:00",
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "GeoSuite",
+    "sameAs": "https://trygeosuite.it",
+    "logo": "https://trygeosuite.it/og-logo.png"
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Pellico 12",
+      "addressLocality": "Milano",
+      "addressRegion": "MI",
+      "postalCode": "20121",
+      "addressCountry": "IT"
+    }
+  },
+  "applicantLocationRequirements": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "jobLocationType": "TELECOMMUTE",
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "EUR",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": 45000,
+      "maxValue": 60000,
+      "unitText": "YEAR"
+    }
+  }
+}

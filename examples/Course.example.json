@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "GEO 101 — Generative Engine Optimization Foundations",
+  "description": "Quattro moduli on-demand per capire come gli LLM scoprono, valutano e citano i contenuti web.",
+  "provider": {
+    "@type": "Organization",
+    "name": "GeoSuite Academy",
+    "sameAs": "https://academy.trygeosuite.it"
+  },
+  "url": "https://academy.trygeosuite.it/courses/geo-101",
+  "image": "https://academy.trygeosuite.it/courses/geo-101/cover.jpg",
+  "courseMode": "ONLINE",
+  "educationalLevel": "Beginner",
+  "inLanguage": "it",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "ONLINE",
+    "startDate": "2026-04-01",
+    "endDate": "2026-12-31",
+    "courseWorkload": "PT6H"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "category": "Free"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "{{DATASET_NAME}}",
+  "description": "{{DATASET_DESCRIPTION}}",
+  "url": "{{DATASET_URL}}",
+  "identifier": "{{DATASET_DOI_OR_ID}}",
+  "keywords": ["{{KEYWORD_1}}", "{{KEYWORD_2}}", "{{KEYWORD_3}}"],
+  "license": "{{LICENSE_URL}}",
+  "datePublished": "{{ISO_DATE}}",
+  "temporalCoverage": "{{ISO_INTERVAL}}",
+  "creator": {
+    "@type": "Organization",
+    "name": "{{CREATOR_NAME}}",
+    "url": "{{CREATOR_URL}}"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "{{MIME_TYPE}}",
+      "contentUrl": "{{DOWNLOAD_URL}}"
+    }
+  ]
+}

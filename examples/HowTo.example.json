@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Come configurare il tracciamento eventi in Acme Analytics",
+  "description": "Guida rapida per integrare lo SDK JavaScript di Acme Analytics e tracciare il primo evento personalizzato in meno di dieci minuti.",
+  "totalTime": "PT10M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Crea un nuovo progetto",
+      "text": "Accedi alla dashboard di Acme Analytics, apri la sezione Progetti e clicca su Nuovo progetto. Assegna un nome, seleziona la regione di hosting (Frankfurt o Milano) e copia la API key generata.",
+      "image": "https://acmeanalytics.it/docs/howto/step1.png",
+      "url": "https://acmeanalytics.it/docs/quickstart#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Installa lo SDK JavaScript",
+      "text": "Dal terminale del tuo progetto front-end esegui il comando di installazione del pacchetto npm @acmeanalytics/sdk e importa il client nel punto di ingresso della tua applicazione.",
+      "image": "https://acmeanalytics.it/docs/howto/step2.png",
+      "url": "https://acmeanalytics.it/docs/quickstart#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Invia il primo evento",
+      "text": "Inizializza il client con la API key e chiama il metodo track passando il nome dell'evento e gli attributi rilevanti. Apri la dashboard Live per verificare che l'evento arrivi entro pochi secondi.",
+      "image": "https://acmeanalytics.it/docs/howto/step3.png",
+      "url": "https://acmeanalytics.it/docs/quickstart#step3"
+    }
+  ]
+}

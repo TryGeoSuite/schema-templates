@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{LIST_NAME}}",
+  "description": "{{LIST_DESCRIPTION}}",
+  "url": "{{LIST_URL}}",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 3,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "{{ITEM_1_URL}}",
+      "name": "{{ITEM_1_NAME}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "{{ITEM_2_URL}}",
+      "name": "{{ITEM_2_NAME}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "{{ITEM_3_URL}}",
+      "name": "{{ITEM_3_NAME}}"
+    }
+  ]
+}

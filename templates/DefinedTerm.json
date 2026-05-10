@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "{{TERM_NAME}}",
+  "description": "{{TERM_DEFINITION}}",
+  "termCode": "{{TERM_CODE}}",
+  "url": "{{TERM_URL}}",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "{{GLOSSARY_NAME}}",
+    "url": "{{GLOSSARY_URL}}"
+  }
+}

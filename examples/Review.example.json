@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "url": "https://acmeanalytics.it/recensioni/pixelmetrics",
+  "datePublished": "2026-03-21",
+  "reviewBody": "PixelMetrics è una piattaforma solida per i team che hanno bisogno di event tracking di base, ma manca di funzionalità avanzate per cohort analysis ed esperimenti. La copertura GDPR è buona, l'interfaccia è disponibile solo in inglese e tedesco.",
+  "author": {
+    "@type": "Person",
+    "name": "Giulia Romano",
+    "url": "https://acmeanalytics.it/team/giulia-romano"
+  },
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "PixelMetrics",
+    "url": "https://example-pixelmetrics.de"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "3.5",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Acme Analytics",
+    "url": "https://acmeanalytics.it"
+  }
+}

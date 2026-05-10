@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Funnel di conversione",
+  "description": "Sequenza ordinata di passaggi che un utente compie per completare un'azione di valore (ad esempio iscrizione, attivazione, primo pagamento). In Acme Analytics il funnel misura il tasso di passaggio fra ogni step e il tempo medio di completamento.",
+  "termCode": "funnel-conversione",
+  "url": "https://acmeanalytics.it/glossario/funnel-conversione",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Glossario di product analytics",
+    "url": "https://acmeanalytics.it/glossario"
+  }
+}

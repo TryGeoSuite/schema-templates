@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{APP_NAME}}",
+  "url": "{{APP_URL}}",
+  "description": "{{APP_DESCRIPTION}}",
+  "applicationCategory": "{{APPLICATION_CATEGORY}}",
+  "operatingSystem": "{{OPERATING_SYSTEM}}",
+  "softwareVersion": "{{VERSION}}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{PUBLISHER_NAME}}",
+    "url": "{{PUBLISHER_URL}}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "{{PRICE}}",
+    "priceCurrency": "{{CURRENCY}}",
+    "url": "{{PRICING_URL}}",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{RATING_VALUE}}",
+    "ratingCount": "{{RATING_COUNT}}",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Le migliori piattaforme di product analytics per team SaaS in Europa",
+  "description": "Confronto curato delle piattaforme di product analytics più adatte ai team SaaS B2B europei, ordinate per maturità del prodotto e copertura GDPR.",
+  "url": "https://acmeanalytics.it/blog/migliori-product-analytics-europa",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 3,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://acmeanalytics.it",
+      "name": "Acme Analytics"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://example-eu-analytics.eu",
+      "name": "EU Analytics"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://example-pixelmetrics.de",
+      "name": "PixelMetrics"
+    }
+  ]
+}
