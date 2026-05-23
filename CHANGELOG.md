@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented here. The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project follows semantic versioning where it makes sense for a content repository.
 
+## 0.3.2 — 2026-05-23
+
+### Fixed
+
+- Test runner: replaced `node --test "test/**/*.js"` with `node --test test/*.js`. Node 20 does not expand globs in `--test`, breaking CI.
+
+### Changed
+
+- README and `package.json` now credit **Matteo Perino** as creator and inventor (with GitHub + LinkedIn), maintained under GeoSuite. LICENSE copyright reads "Matteo Perino and GeoSuite".
+
 ## 0.3.0 — 2026-05-10
 
 ### Changed

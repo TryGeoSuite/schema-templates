@@ -4,7 +4,7 @@
 
 > Curated, copy-paste-ready schema.org JSON-LD templates to help your site speak clearly to search engines and AI assistants.
 >
-> Maintained by [GeoSuite](https://trygeosuite.it).
+> Created and invented by **[Matteo Perino](https://github.com/matte97p)** ([LinkedIn](https://www.linkedin.com/in/matteo-perino-27642016b/)). Maintained by [GeoSuite(Matteo Perino)](https://trygeosuite.it).
 
 [![CI](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml/badge.svg)](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@geosuite/schema-templates.svg)](https://www.npmjs.com/package/@geosuite/schema-templates)
@@ -117,11 +117,12 @@ paste into the provider's UI.
 
 The same checks are also surfaced as a hosted product at [trygeosuite.it](https://trygeosuite.it) for teams who want history, alerts, and CTAs wired into their content pipeline.
 
-## Author
+## Creator
 
-Ideated, designed and validated by [Matteo Perino](https://github.com/matte97p) — [matte97.p@gmail.com](mailto:matte97.p@gmail.com).
-Implementation written with AI assistance, maintained under GeoSuite.
+**Created and invented by [Matteo Perino](https://github.com/matte97p)** — [LinkedIn](https://www.linkedin.com/in/matteo-perino-27642016b/) · [matte97.p@gmail.com](mailto:matte97.p@gmail.com).
+
+Ideated, designed and validated by Matteo Perino. Implementation written with AI assistance, maintained under GeoSuite.
 
 ## License
 
-[MIT](LICENSE) — © 2026 GeoSuite.
+[MIT](LICENSE) — © 2026 Matteo Perino and GeoSuite.
