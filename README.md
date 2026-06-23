@@ -12,6 +12,10 @@
 [![GitHub stars](https://img.shields.io/github/stars/TryGeoSuite/schema-templates?style=flat&logo=github)](https://github.com/TryGeoSuite/schema-templates/stargazers)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+### ▶ [Try it live](https://schema-templates.geosuite.workers.dev) — pick a template, validate your JSON-LD
+
+No install: copy any schema.org JSON-LD template, or paste yours and validate it against the structural checks. Or use the CLI below.
+
 ## Why JSON-LD matters for GEO
 
 Generative Engine Optimization (GEO) is the practice of making your content legible to AI assistants — ChatGPT, Perplexity, Gemini, Claude, Google's AI Overviews, and the long tail of LLM-powered search surfaces. These systems do not run a full browser the way Googlebot does; they parse the markup they find. Structured data in JSON-LD is the most explicit, least ambiguous way to tell a machine what a page is about: who wrote it, what product is on offer, what steps a how-to takes, what a term means.
