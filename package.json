@@ -1,6 +1,6 @@
 {
   "name": "@geosuite/schema-templates",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Curated, copy-paste-ready schema.org JSON-LD templates for Generative Engine Optimization (GEO).",
   "type": "module",
   "license": "MIT",
