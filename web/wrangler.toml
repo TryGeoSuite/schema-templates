@@ -1,0 +1,10 @@
+name = "schema-templates"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# No nodejs_compat and no `npm install` needed: the Worker bundles the
+# templates/*.json plus a pure validator — zero `node:*` usage, zero deps.
+#
+# ⚠️ Deploy to your PERSONAL / GeoSuite Cloudflare account — NOT the work/Cato
+# one (`wrangler whoami` to check). Pin it to be safe:
+# account_id = "<your-personal-cloudflare-account-id>"
