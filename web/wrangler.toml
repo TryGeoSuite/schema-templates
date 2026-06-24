@@ -2,6 +2,12 @@ name = "schema-templates"
 main = "worker.js"
 compatibility_date = "2025-01-01"
 
+# Bundle the OG share image (1200×630 PNG) as an ArrayBuffer the Worker serves
+# at /og.png — no external host, CSP-safe.
+rules = [
+  { type = "Data", globs = ["**/*.png"], fallthrough = false }
+]
+
 # No nodejs_compat and no `npm install` needed: the Worker bundles the
 # templates/*.json plus a pure validator — zero `node:*` usage, zero deps.
 #

@@ -1,13 +1,102 @@
-// The single-page UI served at `/`. Plain template string (no `${}`, no inner
-// backticks). All CSS/JS inline; no external assets.
+// The single-page UI served at `/`, `/en`, `/it`. Bilingual (en/it): the worker
+// picks a locale and calls renderPage(lang); all visitor-facing copy lives in the
+// S dictionary below. schema.org type NAMES and JSON-LD template/sample content
+// are product content — they stay verbatim, never translated.
+//
+// All CSS/JS inline; no external assets. The inline <script> reads its visitor-
+// visible strings from a JSON-serialised I18N blob injected just before it.
 
-export const PAGE = `<!doctype html>
-<html lang="en">
+const BASE = 'https://schema-templates.geosuite.workers.dev';
+
+const S = {
+  en: {
+    title: 'Schema Templates — copy-paste schema.org JSON-LD + validator',
+    desc: 'Ready-to-use schema.org JSON-LD templates (Organization, Product, FAQPage, Article…) plus a free validator for your own structured data.',
+    h1: 'Schema Templates',
+    lead: `Copy-paste <a href="https://schema.org" target="_blank" rel="noopener" style="color:var(--accent)">schema.org</a> JSON-LD templates — and validate your own structured data.`,
+    promo: `<strong>Built by GeoSuite</strong> — the AI-visibility platform that measures &amp; improves how ChatGPT, Gemini, Claude &amp; Perplexity describe your brand.`,
+    cta: 'Explore GeoSuite →',
+    star: '★ Star on GitHub',
+    secTemplate: 'Get a template',
+    placeholderHint: `replace the <code>{{PLACEHOLDERS}}</code> with your values`,
+    copy: 'Copy',
+    download: 'Download',
+    secValidate: 'Validate your JSON-LD',
+    validate: 'Validate',
+    validateHint: 'Checks JSON, @context, @type, required fields, and leftover placeholders.',
+    footerOpen: 'Open source (MIT):',
+    footerBuilt: `Built by <a href="https://github.com/matte97p">Matteo Perino</a> · a <a href="https://trygeosuite.it">GeoSuite</a> open-source tool.`,
+    js: {
+      loading: 'Loading…',
+      loadFailed: 'Failed to load.',
+      copied: 'Copied ✓',
+      copy: 'Copy',
+      validating: 'Validating…',
+      valid: '✓ Valid — passes the structural checks.',
+      issuesPre: '✗ ',
+      issuesPost: ' issue(s):',
+      networkError: 'Network error — try again.',
+    },
+  },
+  it: {
+    title: 'Schema Templates — JSON-LD schema.org da copiare + validatore',
+    desc: 'Template JSON-LD schema.org pronti all\'uso (Organization, Product, FAQPage, Article…) più un validatore gratuito per i tuoi dati strutturati.',
+    h1: 'Schema Templates',
+    lead: `Template JSON-LD <a href="https://schema.org" target="_blank" rel="noopener" style="color:var(--accent)">schema.org</a> da copiare — e valida i tuoi dati strutturati.`,
+    promo: `<strong>Realizzato da GeoSuite</strong> — la piattaforma di visibilità AI che misura e migliora come ChatGPT, Gemini, Claude e Perplexity descrivono il tuo brand.`,
+    cta: 'Scopri GeoSuite →',
+    star: '★ Stella su GitHub',
+    secTemplate: 'Ottieni un template',
+    placeholderHint: `sostituisci i <code>{{PLACEHOLDERS}}</code> con i tuoi valori`,
+    copy: 'Copia',
+    download: 'Scarica',
+    secValidate: 'Valida il tuo JSON-LD',
+    validate: 'Valida',
+    validateHint: 'Controlla JSON, @context, @type, campi obbligatori e placeholder rimasti.',
+    footerOpen: 'Open source (MIT):',
+    footerBuilt: `Realizzato da <a href="https://github.com/matte97p">Matteo Perino</a> · uno strumento open-source di <a href="https://trygeosuite.it">GeoSuite</a>.`,
+    js: {
+      loading: 'Caricamento…',
+      loadFailed: 'Caricamento fallito.',
+      copied: 'Copiato ✓',
+      copy: 'Copia',
+      validating: 'Validazione…',
+      valid: '✓ Valido — supera i controlli strutturali.',
+      issuesPre: '✗ ',
+      issuesPost: ' problema/i:',
+      networkError: 'Errore di rete — riprova.',
+    },
+  },
+};
+
+// lang: 'en' | 'it'.
+export function renderPage(lang) {
+  const t = S[lang] || S.en;
+  return `<!doctype html>
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Schema Templates — copy-paste schema.org JSON-LD + validator</title>
-<meta name="description" content="Ready-to-use schema.org JSON-LD templates (Organization, Product, FAQPage, Article…) plus a free validator for your own structured data.">
+<title>${t.title}</title>
+<meta name="description" content="${t.desc}">
+<link rel="canonical" href="${BASE}/${lang}">
+<link rel="alternate" hreflang="en" href="${BASE}/en">
+<link rel="alternate" hreflang="it" href="${BASE}/it">
+<link rel="alternate" hreflang="x-default" href="${BASE}/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeoSuite Open">
+<meta property="og:title" content="${t.title}">
+<meta property="og:description" content="${t.desc}">
+<meta property="og:url" content="${BASE}/${lang}">
+<meta property="og:image" content="${BASE}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="${lang === 'it' ? 'it_IT' : 'en_US'}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${t.title}">
+<meta name="twitter:description" content="${t.desc}">
+<meta name="twitter:image" content="${BASE}/og.png">
 <style>
   :root {
     --bg: #0b0f17; --panel: #131a26; --line: #243042; --text: #e7edf5;
@@ -19,7 +108,11 @@ export const PAGE = `<!doctype html>
     font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
+  .wrap { position: relative; max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
+  .lang { position: absolute; top: 18px; right: 20px; display: flex; gap: 6px; font-size: .8rem; }
+  .lang a { color: var(--muted); text-decoration: none; padding: 4px 9px; border-radius: 7px; border: 1px solid transparent; }
+  .lang a.on { color: var(--text); border-color: var(--line); background: var(--panel); }
+  .lang a:hover { color: var(--text); }
   header h1 { font-size: 1.7rem; margin: 0 0 6px; letter-spacing: -0.02em; }
   header p { color: var(--muted); margin: 0 0 24px; }
   .promo { margin: 0 0 26px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); display: flex; align-items: center; gap: 18px; justify-content: space-between; flex-wrap: wrap; }
@@ -62,49 +155,54 @@ export const PAGE = `<!doctype html>
 </head>
 <body>
 <div class="wrap">
+  <nav class="lang" aria-label="Language">
+    <a href="/en"${lang === 'en' ? ' class="on"' : ''}>EN</a>
+    <a href="/it"${lang === 'it' ? ' class="on"' : ''}>IT</a>
+  </nav>
   <header>
-    <h1>🔖 Schema Templates</h1>
-    <p>Copy-paste <a href="https://schema.org" target="_blank" rel="noopener" style="color:var(--accent)">schema.org</a> JSON-LD templates — and validate your own structured data.</p>
+    <h1>🔖 ${t.h1}</h1>
+    <p>${t.lead}</p>
   </header>
 
   <div class="promo">
-    <div class="txt"><strong>Built by GeoSuite</strong> — the AI-visibility platform that measures &amp; improves how ChatGPT, Gemini, Claude &amp; Perplexity describe your brand.</div>
+    <div class="txt">${t.promo}</div>
     <div class="promo-actions">
-      <a class="promo-cta" href="https://trygeosuite.it" target="_blank" rel="noopener">Explore GeoSuite →</a>
-      <a class="gh" href="https://github.com/TryGeoSuite/schema-templates" target="_blank" rel="noopener">★ Star on GitHub</a>
+      <a class="promo-cta" href="https://trygeosuite.it" target="_blank" rel="noopener">${t.cta}</a>
+      <a class="gh" href="https://github.com/TryGeoSuite/schema-templates" target="_blank" rel="noopener">${t.star}</a>
     </div>
   </div>
 
-  <h2 class="sec">Get a template</h2>
+  <h2 class="sec">${t.secTemplate}</h2>
   <div class="row">
-    <select id="type"><option>Loading…</option></select>
-    <span style="color:var(--muted);font-size:.9rem">replace the <code>{{PLACEHOLDERS}}</code> with your values</span>
+    <select id="type"><option>${t.js.loading}</option></select>
+    <span style="color:var(--muted);font-size:.9rem">${t.placeholderHint}</span>
   </div>
   <div class="card">
     <div class="bar">
       <span class="grow" id="tname"></span>
-      <button class="ghost" id="copy" type="button">Copy</button>
-      <button class="ghost" id="dl" type="button">Download</button>
+      <button class="ghost" id="copy" type="button">${t.copy}</button>
+      <button class="ghost" id="dl" type="button">${t.download}</button>
     </div>
     <pre class="code" id="tpl">…</pre>
   </div>
 
-  <h2 class="sec">Validate your JSON-LD</h2>
+  <h2 class="sec">${t.secValidate}</h2>
   <textarea id="in" placeholder='Paste your JSON-LD here, e.g. { "@context": "https://schema.org", "@type": "Organization", ... }'></textarea>
   <div class="row" style="margin-top:10px">
-    <button id="val" type="button">Validate</button>
-    <span style="color:var(--muted);font-size:.85rem">Checks JSON, @context, @type, required fields, and leftover placeholders.</span>
+    <button id="val" type="button">${t.validate}</button>
+    <span style="color:var(--muted);font-size:.85rem">${t.validateHint}</span>
   </div>
   <div id="vout"></div>
 
   <footer>
-    Open source (MIT): <a href="https://github.com/TryGeoSuite/schema-templates">GitHub</a>
+    ${t.footerOpen} <a href="https://github.com/TryGeoSuite/schema-templates">GitHub</a>
     · <a href="https://www.npmjs.com/package/@geosuite/schema-templates">npm</a>
     · <code>npx @geosuite/schema-templates show Organization</code><br>
-    Built by <a href="https://github.com/matte97p">Matteo Perino</a> · a <a href="https://trygeosuite.it">GeoSuite</a> open-source tool.
+    ${t.footerBuilt}
   </footer>
 </div>
 
+<script>var I18N = ${JSON.stringify(t.js)};</script>
 <script>
   var sel = document.getElementById('type');
   var tpl = document.getElementById('tpl');
@@ -115,11 +213,11 @@ export const PAGE = `<!doctype html>
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   function loadTemplate(type){
-    tpl.textContent = 'Loading…';
+    tpl.textContent = I18N.loading;
     fetch('/api/template?type=' + encodeURIComponent(type))
       .then(function(r){ return r.json(); })
       .then(function(d){ current = d.json || ''; tpl.textContent = current; tname.textContent = type; })
-      .catch(function(){ tpl.textContent = 'Failed to load.'; });
+      .catch(function(){ tpl.textContent = I18N.loadFailed; });
   }
 
   fetch('/api/templates').then(function(r){ return r.json(); }).then(function(types){
@@ -133,7 +231,7 @@ export const PAGE = `<!doctype html>
 
   document.getElementById('copy').addEventListener('click', function(){
     navigator.clipboard.writeText(current).then(function(){
-      var b = document.getElementById('copy'); b.textContent = 'Copied ✓'; setTimeout(function(){ b.textContent = 'Copy'; }, 1500);
+      var b = document.getElementById('copy'); b.textContent = I18N.copied; setTimeout(function(){ b.textContent = I18N.copy; }, 1500);
     });
   });
   document.getElementById('dl').addEventListener('click', function(){
@@ -145,16 +243,17 @@ export const PAGE = `<!doctype html>
   document.getElementById('val').addEventListener('click', function(){
     var vout = document.getElementById('vout');
     var body = document.getElementById('in').value;
-    vout.innerHTML = '<div class="verdict" style="color:var(--muted)">Validating…</div>';
+    vout.innerHTML = '<div class="verdict" style="color:var(--muted)">' + I18N.validating + '</div>';
     fetch('/api/validate', { method: 'POST', body: body })
       .then(function(r){ return r.json(); })
       .then(function(d){
-        if (d.ok){ vout.innerHTML = '<div class="verdict ok">✓ Valid — passes the structural checks.</div>'; return; }
+        if (d.ok){ vout.innerHTML = '<div class="verdict ok">' + I18N.valid + '</div>'; return; }
         var items = (d.errors || []).map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('');
-        vout.innerHTML = '<div class="verdict bad">✗ ' + (d.errors || []).length + ' issue(s):<ul>' + items + '</ul></div>';
+        vout.innerHTML = '<div class="verdict bad">' + I18N.issuesPre + (d.errors || []).length + I18N.issuesPost + '<ul>' + items + '</ul></div>';
       })
-      .catch(function(){ vout.innerHTML = '<div class="verdict bad">Network error — try again.</div>'; });
+      .catch(function(){ vout.innerHTML = '<div class="verdict bad">' + I18N.networkError + '</div>'; });
   });
 </script>
 </body>
 </html>`;
+}
