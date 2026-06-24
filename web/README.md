@@ -5,7 +5,8 @@ A [Cloudflare Worker](https://developers.cloudflare.com/workers/) that puts
 JSON-LD template, or paste your own JSON-LD and validate it. The validator uses
 the same structural checks as the repo's `validate.js`.
 
-- `GET /` — the page (`page.js`)
+- `GET /` — the page (`page.js`), bilingual **en/it** (auto-detected from `Accept-Language`; `/en` · `/it` force a locale)
+- `GET /og.png` · `GET /favicon.svg` — Open Graph share image (1200×630) + favicon
 - `GET /api/templates` — list of available types
 - `GET /api/template?type=Organization` — one template (`{ type, json }`)
 - `POST /api/validate` — body is your JSON-LD; returns `{ ok, errors }`
