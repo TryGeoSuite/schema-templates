@@ -4,7 +4,7 @@
 
 > Curated, copy-paste-ready schema.org JSON-LD templates to help your site speak clearly to search engines and AI assistants.
 >
-> Created and invented by **[Matteo Perino](https://github.com/matte97p)** ([LinkedIn](https://www.linkedin.com/in/matteo-perino-27642016b/)). Maintained by [GeoSuite(Matteo Perino)](https://trygeosuite.it).
+> Created and invented by **[Matteo Perino](https://github.com/matte97p)** ([LinkedIn](https://www.linkedin.com/in/matteo-perino-27642016b/)). Maintained by [GeoSuite](https://trygeosuite.it).
 
 [![CI](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml/badge.svg)](https://github.com/TryGeoSuite/schema-templates/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@geosuite/schema-templates.svg)](https://www.npmjs.com/package/@geosuite/schema-templates)
