@@ -6,7 +6,8 @@ JSON-LD template, or paste your own JSON-LD and validate it. The validator uses
 the same structural checks as the repo's `validate.js`.
 
 - `GET /` — the page (`page.js`), bilingual **en/it** (auto-detected from `Accept-Language`; `/en` · `/it` force a locale)
-- `GET /og.png` · `GET /favicon.svg` — Open Graph share image (1200×630) + favicon
+- `GET /og.png` · `GET /favicon.png` — Open Graph share image (1200×630) + GeoSuite's favicon (also at `/favicon.ico`, `/apple-touch-icon.png` and the old `/favicon.svg`)
+- `GET /logos/{chatgpt,gemini,perplexity}.svg` — the engine logos in the page's call to action
 - `GET /api/templates` — list of available types
 - `GET /api/template?type=Organization` — one template (`{ type, json }`)
 - `POST /api/validate` — body is your JSON-LD; returns `{ ok, errors }`
