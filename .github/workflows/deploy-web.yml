@@ -15,6 +15,7 @@ on:
     paths:
       - 'web/**'
       - 'templates/**'
+      - 'src/validate.js'
       - '.github/workflows/deploy-web.yml'
   workflow_dispatch: {}
 

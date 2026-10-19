@@ -10,7 +10,7 @@ Thanks for your interest in extending this template library. The goal of the rep
 4. **Keep it minimal.** Include only the properties that are genuinely necessary for the use case. Resist the urge to ship every optional property — extra fields dilute the signal.
 5. **Use placeholders.** Wrap every value the consumer is expected to fill in with `{{DOUBLE_CURLY_PLACEHOLDERS}}`. Use SCREAMING_SNAKE_CASE for placeholder names.
 6. **Ship a matching example.** Add `examples/<TypeName>.example.json` with realistic, populated values. Examples in this repo use a fictional Italian SaaS company so contributors can copy the style; you are welcome to use a different fictional brand if it makes the example clearer, as long as values are plausible.
-7. **Declare required fields.** Open `validate.js` and add an entry to `REQUIRED_BY_TYPE` listing the top-level fields that must be present for your `@type`. Keep this list short — it is the floor, not the ceiling.
+7. **Declare required fields.** Open `src/validate.js` and add an entry to `REQUIRED_BY_TYPE` listing the top-level fields that must be present for your `@type`. Keep this list short: it is the floor, not the ceiling.
 8. **Update the README catalog.** Add a row to the catalog table with the schema type, use case, and links to the template and example.
 9. **Run the checks locally.**
 
@@ -25,7 +25,9 @@ Thanks for your interest in extending this template library. The goal of the rep
 
 ## Modifying an existing template
 
-The same rules apply. If your change adds or removes a top-level property, update `REQUIRED_BY_TYPE` in `validate.js` and the matching example in the same PR. Keep template and example in lockstep.
+The same rules apply. If your change adds or removes a top-level property, update `REQUIRED_BY_TYPE` in `src/validate.js` and the matching example in the same PR. Keep template and example in lockstep.
+
+**Template or rule changes reach GeoSuite too.** GeoSuite's Schema Helper vendors `templates/` and runs the same check: `test/fixtures/golden.json` pins the templates' hashes, `REQUIRED_BY_TYPE` and the expected verdicts, and both repos test against it. After changing a template or a rule, run `npm run golden` to refresh the hashes (add a case to `validate_cases` for a new rule), then copy `templates/` and the fixture to GeoSuite.
 
 ## Questions
 

@@ -2,6 +2,27 @@
 
 All notable changes to this project are documented here. The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project follows semantic versioning where it makes sense for a content repository.
 
+## Unreleased
+
+### Changed
+
+- The JSON-LD check lives in `src/validate.js` (also `@geosuite/schema-templates/validate`),
+  imported as is by `validate.js` and the web tool, and gives the verdict of
+  GeoSuite's Schema Helper on every case of `test/fixtures/golden.json`, a
+  fixture GeoSuite runs too:
+  - `@graph` and top-level arrays are expanded, and a `@graph` item inherits
+    the wrapper's `@context` (pasting a Yoast or Rank Math block used to fail
+    with "missing @type");
+  - `http://schema.org` and a trailing slash are accepted, and so is a
+    non-string `@context` (an array or an object);
+  - an `@type` list is checked by its first string type;
+  - an `@type` without a template is no longer an error in the web tool
+    (`validate.js` still requires a known one for the files the repo ships);
+  - "invalid JSON" no longer carries the parser message inside the error: the
+    API returns it as `parseError`, and the page still shows it.
+- The golden file pins the sha256 of every template, the copy GeoSuite vendors.
+  `npm run golden` refreshes the hashes after a template change.
+
 ## 0.3.2 — 2026-05-23
 
 ### Fixed

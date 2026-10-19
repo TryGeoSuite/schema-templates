@@ -57,7 +57,7 @@ After replacing placeholders, run your JSON through at least one of these:
 
 - [Schema.org Validator](https://validator.schema.org/) — checks that your JSON-LD conforms to the schema.org vocabulary. The most strict and the most useful for generic JSON-LD.
 - [Google Rich Results Test](https://search.google.com/test/rich-results) — checks the subset of properties Google uses for rich results. Helpful but narrower than the schema.org validator.
-- The bundled `validate.js` script in this repo runs a fast structural sanity check (`@context`, `@type`, required fields) without any network calls. Run it with `npm run validate` or `node validate.js`.
+- The bundled `validate.js` script in this repo runs a fast structural sanity check (`@context`, `@type`, required fields) without any network calls. Run it with `npm run validate` or `node validate.js`. The check itself is `src/validate.js` (`import { validateJsonLd } from '@geosuite/schema-templates/validate'`): the same one the web tool and GeoSuite's Schema Helper run, with the same verdict for the same JSON-LD (one object, an array or a `@graph`).
 
 The recommended order is: `validate.js` first to catch typos, then the schema.org validator, then the Google test if you specifically care about Google rich results.
 
@@ -72,7 +72,7 @@ No runtime or dev dependencies. There is no build step.
 
 ## Contributing
 
-We welcome new templates and improvements to existing ones. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. The short version: every new template must (a) follow the file-naming convention, (b) ship a matching `examples/*.example.json` with realistic values, (c) declare its required fields in `validate.js`, and (d) pass `npm run validate` and `npm test`.
+We welcome new templates and improvements to existing ones. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. The short version: every new template must (a) follow the file-naming convention, (b) ship a matching `examples/*.example.json` with realistic values, (c) declare its required fields in `src/validate.js`, and (d) pass `npm run validate` and `npm test`.
 
 ## CLI (0.2+)
 

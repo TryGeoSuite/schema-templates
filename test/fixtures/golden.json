@@ -1,0 +1,523 @@
+{
+  "_about": "Golden cases for the JSON-LD check of @geosuite/schema-templates (src/validate.js) and GeoSuite's Schema Helper (backend/services/tools/schema_helper_service.py). Both repos run every case; GeoSuite keeps a byte-identical copy in backend/tests/fixtures/schema_templates_golden.json. templates_sha256 pins the templates GeoSuite vendors in backend/data/schema_templates/. Change the rule and this file here first, then copy both to GeoSuite.",
+  "required_by_type": {
+    "Article": [
+      "headline",
+      "author",
+      "publisher",
+      "datePublished"
+    ],
+    "BlogPosting": [
+      "headline",
+      "author",
+      "publisher",
+      "datePublished"
+    ],
+    "BreadcrumbList": [
+      "itemListElement"
+    ],
+    "Course": [
+      "name",
+      "description",
+      "provider"
+    ],
+    "Dataset": [
+      "name",
+      "description",
+      "creator",
+      "distribution"
+    ],
+    "DefinedTerm": [
+      "name",
+      "description"
+    ],
+    "DefinedTermSet": [
+      "name",
+      "hasDefinedTerm"
+    ],
+    "Event": [
+      "name",
+      "startDate",
+      "location"
+    ],
+    "FAQPage": [
+      "mainEntity"
+    ],
+    "HowTo": [
+      "name",
+      "step"
+    ],
+    "HowToTip": [
+      "text"
+    ],
+    "ItemList": [
+      "itemListElement"
+    ],
+    "JobPosting": [
+      "title",
+      "description",
+      "datePosted",
+      "hiringOrganization"
+    ],
+    "LocalBusiness": [
+      "name",
+      "address",
+      "telephone"
+    ],
+    "Organization": [
+      "name",
+      "url",
+      "logo"
+    ],
+    "Product": [
+      "name",
+      "offers"
+    ],
+    "ProfilePage": [
+      "mainEntity"
+    ],
+    "QAPage": [
+      "mainEntity"
+    ],
+    "Recipe": [
+      "name",
+      "recipeIngredient",
+      "recipeInstructions"
+    ],
+    "Review": [
+      "author",
+      "itemReviewed",
+      "reviewRating"
+    ],
+    "Service": [
+      "name",
+      "provider"
+    ],
+    "SoftwareApplication": [
+      "name",
+      "applicationCategory",
+      "operatingSystem",
+      "offers"
+    ],
+    "VideoObject": [
+      "name",
+      "description",
+      "thumbnailUrl",
+      "uploadDate"
+    ],
+    "WebSite": [
+      "name",
+      "url"
+    ]
+  },
+  "templates_sha256": {
+    "Article.json": "c701551efb01cfb7b1a13513ce4bd9f65bfada30bfebf65ed492626dce01a72d",
+    "BreadcrumbList.json": "9c9997a4f55ff6808874128b93dee8c82c17d28b001bf855438d510ea280615b",
+    "Course.json": "7af92eaff846e7facadc362d4206757c1af20e706906d8c4c1f98362115e2952",
+    "Dataset.json": "5be2cca47df0c5bc34b6d743531f3c423856d8926a520eec5b3067c9a95e4604",
+    "DefinedTerm.json": "e5c74a7397310d5557a6d11a288e4ad0468cb2daf75ca621fa48fa03b675cce9",
+    "DefinedTermSet.json": "1aaeacf1fa3a114ca221deb557a5387f933d032eef856aac59bcec7af8ea796e",
+    "Event.json": "00caf41dc7597e84acd9b608889a89b168df71f896e8158a1a1e3cb93202d195",
+    "FAQPage.json": "62ce213c9c6794b67992f33c28d358d97340da4ae6d6cd079c17083f758ad0c2",
+    "HowTo.json": "c7bd96f866ffafd12fdf0cd7d2a15e29e99589789c1c886c68c5f04733bdcc5a",
+    "HowToTip.json": "1028849eeb38dfcdd6c6b4bc9067e2abe8f612241dbb58703124845137fa7857",
+    "ItemList.json": "e19d889297b22a84e54ec30ff6e925f7f6f3c349ad0acea78acc1f5ebcbefd1b",
+    "JobPosting.json": "ec3e2f1ab9cdf2bec9a50a5c077bddd702a0db7eb8599a4c24d5c4fd5b5c5b3b",
+    "LocalBusiness.json": "ff6e0846ed471c9f63ff3a52cc2ca7de6b2c2ecb74e8063d0c94695e9ddd1ad9",
+    "Organization.json": "c019c7d392d40781137eb14ccdc48edaecf61a331a9408a0947bc009ca785de6",
+    "Product.json": "5fe9b174ff012571c758d5b71cba2b11814a8e49c655ab4ad2181a68271a3f87",
+    "ProfilePage.json": "ea11040ab8ccfcc29ce9680063c1b965bfb5fd6d3972b2f77fb878ce85ad3e9b",
+    "QAPage.json": "e5a718ff85edf3a59a3f684f563ed9af1c5b428e90f7702e26ad7ab0a26f969d",
+    "Recipe.json": "60af8ff1f84febd8cf14404ec4cf05f74e9d17e0a4ff496ac03e58db4cef64e1",
+    "Review.json": "fa44df47d7e72b638ab9a783700fbb08294d79295493203a2efacac242a30683",
+    "Service.json": "882663ed740eeb1f4d173e36d00bfc0c42b32e05137bb14b30b9f1650df2d747",
+    "SoftwareApplication.json": "d8bbfd38f933783b462b1300581c71d9ef9f227c251e39489b2b04cbd570bb9a",
+    "VideoObject.json": "d048de83edd9299cbf8eed97730553e8c6c3fbf12020978e7290efade5e4ad5b",
+    "WebSite.json": "c160565b9241d42d63b8f5124c4bb5e2ce80114277d587c4be597b300805db97"
+  },
+  "validate_cases": [
+    {
+      "name": "a complete Organization is valid",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "a Product without offers misses a required field",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"Product\", \"name\": \"Widget\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing required field \"offers\" for @type \"Product\""
+        ],
+        "items": [
+          {
+            "type": "Product",
+            "valid": false,
+            "errors": [
+              "missing required field \"offers\" for @type \"Product\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "http and a trailing slash are schema.org too",
+      "input": "{\"@context\": \"http://schema.org/\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "a context that is not schema.org is flagged",
+      "input": "{\"@context\": \"https://example.org/\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "unexpected \"@context\": \"https://example.org/\""
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": false,
+            "errors": [
+              "unexpected \"@context\": \"https://example.org/\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a missing context is flagged",
+      "input": "{\"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing \"@context\""
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": false,
+            "errors": [
+              "missing \"@context\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "an empty-string context counts as missing",
+      "input": "{\"@context\": \"\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing \"@context\""
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": false,
+            "errors": [
+              "missing \"@context\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "an array context is accepted as is",
+      "input": "{\"@context\": [\"https://schema.org\", {\"@language\": \"it\"}], \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "a list @type is labelled and checked by its first string",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "a list @type that starts with LocalBusiness needs its fields",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": [5, \"LocalBusiness\", \"Organization\"], \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing required field \"address\" for @type \"LocalBusiness\"",
+          "missing required field \"telephone\" for @type \"LocalBusiness\""
+        ],
+        "items": [
+          {
+            "type": "LocalBusiness",
+            "valid": false,
+            "errors": [
+              "missing required field \"address\" for @type \"LocalBusiness\"",
+              "missing required field \"telephone\" for @type \"LocalBusiness\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a missing @type is flagged",
+      "input": "{\"@context\": \"https://schema.org\", \"name\": \"Acme\"}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing \"@type\""
+        ],
+        "items": [
+          {
+            "type": "Unknown",
+            "valid": false,
+            "errors": [
+              "missing \"@type\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "an empty object misses both context and type",
+      "input": "{}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing \"@context\"",
+          "missing \"@type\""
+        ],
+        "items": [
+          {
+            "type": "Unknown",
+            "valid": false,
+            "errors": [
+              "missing \"@context\"",
+              "missing \"@type\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a type we ship no template for is not an error",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"Thing\", \"name\": \"x\"}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Thing",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "@graph items inherit the wrapper context",
+      "input": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"#org\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/l.png\"}, {\"@type\": \"WebSite\", \"name\": \"Acme\", \"url\": \"https://acme.test\"}]}",
+      "expected": {
+        "ok": true,
+        "errors": [],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          },
+          {
+            "type": "WebSite",
+            "valid": true,
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "a @graph item with its own context uses it",
+      "input": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"WebSite\", \"name\": \"Acme\", \"url\": \"https://acme.test\"}, {\"@context\": \"https://example.org\", \"@type\": \"Thing\"}]}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "unexpected \"@context\": \"https://example.org\""
+        ],
+        "items": [
+          {
+            "type": "WebSite",
+            "valid": true,
+            "errors": []
+          },
+          {
+            "type": "Thing",
+            "valid": false,
+            "errors": [
+              "unexpected \"@context\": \"https://example.org\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a top-level array: each object needs its own context",
+      "input": "[{\"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\"}, {\"@type\": \"WebSite\", \"name\": \"Acme\", \"url\": \"https://acme.test\"}]",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "missing \"@context\""
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": true,
+            "errors": []
+          },
+          {
+            "type": "WebSite",
+            "valid": false,
+            "errors": [
+              "missing \"@context\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "an empty required list is flagged",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"FAQPage\", \"mainEntity\": []}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "required field \"mainEntity\" for @type \"FAQPage\" is empty"
+        ],
+        "items": [
+          {
+            "type": "FAQPage",
+            "valid": false,
+            "errors": [
+              "required field \"mainEntity\" for @type \"FAQPage\" is empty"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "blank and null required fields are flagged",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"  \", \"url\": \"https://acme.test\", \"logo\": null}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "required field \"name\" for @type \"Organization\" is blank",
+          "missing required field \"logo\" for @type \"Organization\""
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": false,
+            "errors": [
+              "required field \"name\" for @type \"Organization\" is blank",
+              "missing required field \"logo\" for @type \"Organization\""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a leftover placeholder is flagged",
+      "input": "{\"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"Acme\", \"url\": \"https://acme.test\", \"logo\": \"https://acme.test/logo.png\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"{{STREET_ADDRESS}}\"}}",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "still contains unfilled {{PLACEHOLDER}} tokens"
+        ],
+        "items": [
+          {
+            "type": "Organization",
+            "valid": false,
+            "errors": [
+              "still contains unfilled {{PLACEHOLDER}} tokens"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "text that is not JSON",
+      "input": "{\"@context\": \"https://schema.org\",",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "invalid JSON"
+        ],
+        "items": []
+      }
+    },
+    {
+      "name": "a JSON value with no object in it",
+      "input": "42",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "no JSON-LD object found"
+        ],
+        "items": []
+      }
+    },
+    {
+      "name": "an array with no object in it",
+      "input": "[1, \"two\", null]",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "no JSON-LD object found"
+        ],
+        "items": []
+      }
+    },
+    {
+      "name": "empty input",
+      "input": "   \n",
+      "expected": {
+        "ok": false,
+        "errors": [
+          "empty input"
+        ],
+        "items": []
+      }
+    }
+  ]
+}

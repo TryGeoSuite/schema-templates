@@ -51,7 +51,7 @@ const S = {
     inLabel: 'Your JSON-LD',
     inPlaceholder: 'Paste your JSON-LD here, e.g. { "@context": "https://schema.org", "@type": "Organization", ... }',
     validate: 'Validate',
-    validateHint: 'Checks the JSON, @context, @type, the required fields and leftover placeholders.',
+    validateHint: 'Checks the JSON (one object, an array or a @graph), @context, @type, the required fields and leftover placeholders: the same check GeoSuite runs on your pages.',
     ctaTitle: 'Readable is step one. Recommended is the goal.',
     ctaText: 'Structured data tells AI what your business is. GeoSuite checks whether ChatGPT, Gemini and Perplexity actually recommend it: it asks them the questions your customers really ask, and tells you where you appear, who wins instead and what to fix first. The report arrives by email.',
     ctaButton: 'Get the free analysis',
@@ -92,7 +92,7 @@ const S = {
     inLabel: 'Il tuo JSON-LD',
     inPlaceholder: 'Incolla qui il tuo JSON-LD, ad esempio { "@context": "https://schema.org", "@type": "Organization", ... }',
     validate: 'Valida',
-    validateHint: 'Controlla il JSON, @context, @type, i campi obbligatori e i placeholder rimasti.',
+    validateHint: 'Controlla il JSON (un oggetto, un array o un @graph), @context, @type, i campi obbligatori e i placeholder rimasti: lo stesso controllo che GeoSuite fa sulle tue pagine.',
     ctaTitle: 'Farsi leggere è il primo passo. Farsi consigliare è l’obiettivo.',
     ctaText: 'I dati strutturati dicono alle AI chi sei. GeoSuite verifica se ChatGPT, Gemini e Perplexity ti consigliano davvero: fa loro le domande che fanno i tuoi clienti e ti dice dove compari, chi vince al posto tuo e cosa correggere per primo. Il report arriva via mail.',
     ctaButton: 'Richiedi l’analisi gratuita',
@@ -336,7 +336,10 @@ ${BASE_CSS}
       .then(function(r){ return r.json(); })
       .then(function(d){
         if (d.ok){ vout.innerHTML = '<div class="verdict ok"><p class="v-head">' + ICONS.ok + '<span>' + I18N.valid + '</span></p></div>'; return; }
-        var items = (d.errors || []).map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('');
+        var items = (d.errors || []).map(function(e){
+          // The parser's own message (line, column) helps more than "invalid JSON" alone.
+          if (e === 'invalid JSON' && d.parseError) e = e + ': ' + d.parseError;
+          return '<li>' + esc(e) + '</li>'; }).join('');
         vout.innerHTML = '<div class="verdict bad"><p class="v-head">' + ICONS.missing + '<span>' + I18N.issuesPre + (d.errors || []).length + I18N.issuesPost + '</span></p><ul>' + items + '</ul></div>';
       })
       .catch(function(){ vout.innerHTML = '<div class="verdict bad"><p class="v-head">' + ICONS.missing + '<span>' + I18N.networkError + '</span></p></div>'; });
