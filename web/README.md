@@ -3,14 +3,14 @@
 A [Cloudflare Worker](https://developers.cloudflare.com/workers/) that puts
 [`schema-templates`](../) on the web: pick a schema.org type and copy the
 JSON-LD template, or paste your own JSON-LD and validate it. The validator uses
-the same structural checks as the repo's `validate.js`.
+the repo's `src/validate.js`, the same check GeoSuite's Schema Helper runs.
 
 - `GET /` — the page (`page.js`), bilingual **en/it** (auto-detected from `Accept-Language`; `/en` · `/it` force a locale)
 - `GET /og.png` · `GET /favicon.png` — Open Graph share image (1200×630) + GeoSuite's favicon (also at `/favicon.ico`, `/apple-touch-icon.png` and the old `/favicon.svg`)
 - `GET /logos/{chatgpt,gemini,perplexity}.svg` — the engine logos in the page's call to action
 - `GET /api/templates` — list of available types
 - `GET /api/template?type=Organization` — one template (`{ type, json }`)
-- `POST /api/validate` — body is your JSON-LD; returns `{ ok, errors }`
+- `POST /api/validate`: body is your JSON-LD; returns `{ ok, errors, items }` (`items`: one entry per object, `@graph` expanded; `parseError` when the text is not JSON)
 
 No database, no tracking, no network calls — the templates are bundled and the
 validator runs in the Worker.
@@ -47,7 +47,7 @@ secrets (Settings → Secrets and variables → Actions):
 ## Notes
 
 - `web/templates-bundle.js` imports every `templates/*.json`; add a line there
-  when you add a template. The validator's `REQUIRED_BY_TYPE` in `worker.js`
-  mirrors `../validate.js` — keep them in sync.
+  when you add a template. The validator is `../src/validate.js`, imported
+  as is: there is no copy to keep in sync.
 - This directory is **not** part of the npm package, so it never ships to
   registry consumers.
