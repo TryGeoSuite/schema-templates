@@ -12,8 +12,10 @@ the repo's `src/validate.js`, the same check GeoSuite's Schema Helper runs.
 - `GET /api/template?type=Organization` — one template (`{ type, json }`)
 - `POST /api/validate`: body is your JSON-LD; returns `{ ok, errors, items }` (`items`: one entry per object, `@graph` expanded; `parseError` when the text is not JSON)
 
-No database, no tracking, no network calls — the templates are bundled and the
-validator runs in the Worker.
+No database, no cookies, no network calls from the Worker: the templates are
+bundled and the validator runs in the Worker. The page sends anonymous usage
+statistics to PostHog (EU) in cookieless mode (`analytics()` in `theme.js`):
+which template, counts and outcomes, never the JSON-LD pasted.
 
 ## Run locally
 
