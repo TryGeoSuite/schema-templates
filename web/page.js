@@ -10,7 +10,7 @@
 // are inline. The inline <script> reads its visitor-visible strings from a
 // JSON-serialised I18N blob injected just before it.
 
-import { FONTS, BASE_CSS, ENGINES } from './theme.js';
+import { FONTS, BASE_CSS, ENGINES, analytics, withSiteUtm } from './theme.js';
 
 const BASE = 'https://schema-templates.geosuite.workers.dev';
 const HUB = 'https://tools.trygeosuite.it';
@@ -18,6 +18,11 @@ const GITHUB = 'https://github.com/TryGeoSuite/schema-templates';
 const NPM = 'https://www.npmjs.com/package/@geosuite/schema-templates';
 const ANALYSIS = 'https://trygeosuite.it/analisi-gratuita?utm_source=geosuite-open&utm_medium=tool&utm_campaign=schema-templates';
 const CLI = 'npx @geosuite/schema-templates show';
+// The tool id in the usage statistics (theme.js analytics).
+const TOOL = 'schema_templates';
+// The campaign name the existing signup links already use: one name per tool
+// keeps a per-campaign report on one row.
+const CAMPAIGN = 'schema-templates';
 
 // State icons (copied from geo-toolkit/check-page.js), always next to a text
 // verdict, never the only signal.
@@ -56,7 +61,7 @@ const S = {
     ctaText: 'Structured data tells AI what your business is. GeoSuite checks whether ChatGPT, Gemini and Perplexity actually recommend it: it asks them the questions your customers really ask, and tells you where you appear, who wins instead and what to fix first. The report arrives by email.',
     ctaButton: 'Get the free analysis',
     footerOpen: `Open source (MIT) by <a href="https://github.com/matte97p">Matteo Perino</a>, maintained under <a href="https://trygeosuite.it">GeoSuite</a>, the Italian platform for AI visibility.`,
-    footerBuilt: `Code on <a href="${GITHUB}">GitHub</a>, package on <a href="${NPM}">npm</a>.`,
+    footerBuilt: `Code on <a href="${GITHUB}">GitHub</a>, package on <a href="${NPM}">npm</a>. Anonymous usage statistics with PostHog (EU), without cookies: they never include what you paste.`,
     js: {
       loading: 'Loading…',
       loadFailed: 'Failed to load.',
@@ -97,7 +102,7 @@ const S = {
     ctaText: 'I dati strutturati dicono alle AI chi sei. GeoSuite verifica se ChatGPT, Gemini e Perplexity ti consigliano davvero: fa loro le domande che fanno i tuoi clienti e ti dice dove compari, chi vince al posto tuo e cosa correggere per primo. Il report arriva via mail.',
     ctaButton: 'Richiedi l’analisi gratuita',
     footerOpen: `Open source (MIT) di <a href="https://github.com/matte97p">Matteo Perino</a>, mantenuto da <a href="https://trygeosuite.it">GeoSuite</a>, la piattaforma italiana per la visibilità sulle AI.`,
-    footerBuilt: `Codice su <a href="${GITHUB}">GitHub</a>, pacchetto su <a href="${NPM}">npm</a>.`,
+    footerBuilt: `Codice su <a href="${GITHUB}">GitHub</a>, pacchetto su <a href="${NPM}">npm</a>. Statistiche d’uso anonime con PostHog (UE), senza cookie: non includono mai quello che incolli.`,
     js: {
       loading: 'Caricamento…',
       loadFailed: 'Caricamento fallito.',
@@ -124,7 +129,7 @@ export function renderPage(lang, typeCount) {
   const facts = t.facts.map((f) => `<li>${ICONS.ok}${f}</li>`);
   if (typeCount) facts.push(`<li>${ICONS.ok}${t.typeCount(typeCount)}</li>`);
 
-  return `<!doctype html>
+  return withSiteUtm(`<!doctype html>
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
@@ -151,6 +156,7 @@ export function renderPage(lang, typeCount) {
 <meta name="twitter:description" content="${t.desc}">
 <meta name="twitter:image" content="${BASE}/og.png">
 ${FONTS}
+${analytics(TOOL)}
 <style>
 ${BASE_CSS}
   :root { color-scheme:light; }
@@ -268,7 +274,7 @@ ${BASE_CSS}
         <p>${t.ctaText}</p>
         ${ENGINES}
       </div>
-      <a class="primary" href="${ANALYSIS}" target="_blank" rel="noopener">${t.ctaButton}</a>
+      <a class="primary" href="${ANALYSIS}" target="_blank" rel="noopener" data-cta="analysis">${t.ctaButton}</a>
     </section>
   </main>
 
@@ -281,7 +287,11 @@ ${BASE_CSS}
   var tpl = document.getElementById('tpl');
   var tname = document.getElementById('tname');
   var cli = document.getElementById('cli');
-  var current = '';
+  var current = '', known = [];
+
+  // Usage statistics (theme.js analytics): never throws, never sends the
+  // JSON-LD pasted, only counts and the template types this tool ships.
+  function track(event, props){ try { if (window.gsTrack) window.gsTrack(event, props); } catch (e) {} }
 
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
@@ -297,12 +307,16 @@ ${BASE_CSS}
 
   fetch('/api/templates').then(function(r){ return r.json(); }).then(function(types){
     sel.innerHTML = '';
+    known = types;
     types.forEach(function(t){ var o = document.createElement('option'); o.value = t; o.textContent = t; sel.appendChild(o); });
     var initial = (types.indexOf('Organization') >= 0) ? 'Organization' : types[0];
     sel.value = initial; loadTemplate(initial);
   });
 
-  sel.addEventListener('change', function(){ loadTemplate(sel.value); });
+  sel.addEventListener('change', function(){
+    track('tool_template_selected', { template: sel.value });
+    loadTemplate(sel.value);
+  });
 
   function copied(b, label){
     b.textContent = I18N.copied; setTimeout(function(){ b.textContent = label; }, 1500);
@@ -310,12 +324,16 @@ ${BASE_CSS}
 
   document.getElementById('copy').addEventListener('click', function(){
     var b = this;
-    navigator.clipboard.writeText(current).then(function(){ copied(b, I18N.copy); }).catch(function(){});
+    navigator.clipboard.writeText(current).then(function(){
+      track('tool_result_copied', { content: 'template', template: sel.value });
+      copied(b, I18N.copy);
+    }).catch(function(){});
   });
   document.getElementById('dl').addEventListener('click', function(){
     var blob = new Blob([current], { type: 'application/ld+json' });
     var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (sel.value || 'schema') + '.jsonld';
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(a.href);
+    track('tool_file_downloaded', { file: a.download, template: sel.value });
   });
 
   // The CLI command box gets its copy button only where the clipboard exists.
@@ -323,7 +341,10 @@ ${BASE_CSS}
     var cb = document.createElement('button');
     cb.type = 'button'; cb.className = 'ghost'; cb.textContent = I18N.copy; cb.setAttribute('aria-label', I18N.copyLabel);
     cb.addEventListener('click', function(){
-      navigator.clipboard.writeText(cli.textContent.trim()).then(function(){ copied(cb, I18N.copy); }).catch(function(){});
+      navigator.clipboard.writeText(cli.textContent.trim()).then(function(){
+        track('tool_result_copied', { content: 'cli_command', template: sel.value });
+        copied(cb, I18N.copy);
+      }).catch(function(){});
     });
     cli.parentNode.appendChild(cb);
   }
@@ -331,10 +352,19 @@ ${BASE_CSS}
   document.getElementById('val').addEventListener('click', function(){
     var vout = document.getElementById('vout');
     var body = document.getElementById('in').value;
+    var t0 = Date.now();
+    track('tool_run_started', { mode: 'validate', source: 'form', input_chars: body.length });
     vout.innerHTML = '<div class="verdict wait"><p class="v-head">' + I18N.validating + '</p></div>';
     fetch('/api/validate', { method: 'POST', body: body })
       .then(function(r){ return r.json(); })
       .then(function(d){
+        var types = (d.items || []).map(function(i){ return known.indexOf(i.type) >= 0 ? i.type : 'other'; });
+        var result = d.ok ? 'valid' : (d.items || []).length ? 'invalid'
+          : d.parseError ? 'invalid_json' : !body.trim() ? 'empty_input' : 'no_jsonld';
+        track('tool_run_completed', {
+          mode: 'validate', duration_ms: Date.now() - t0, result: result, valid: !!d.ok,
+          errors: (d.errors || []).length, objects: types.length, types: types.slice(0, 10),
+        });
         if (d.ok){ vout.innerHTML = '<div class="verdict ok"><p class="v-head">' + ICONS.ok + '<span>' + I18N.valid + '</span></p></div>'; return; }
         var items = (d.errors || []).map(function(e){
           // The parser's own message (line, column) helps more than "invalid JSON" alone.
@@ -342,9 +372,12 @@ ${BASE_CSS}
           return '<li>' + esc(e) + '</li>'; }).join('');
         vout.innerHTML = '<div class="verdict bad"><p class="v-head">' + ICONS.missing + '<span>' + I18N.issuesPre + (d.errors || []).length + I18N.issuesPost + '</span></p><ul>' + items + '</ul></div>';
       })
-      .catch(function(){ vout.innerHTML = '<div class="verdict bad"><p class="v-head">' + ICONS.missing + '<span>' + I18N.networkError + '</span></p></div>'; });
+      .catch(function(){
+        track('tool_run_failed', { mode: 'validate', error: 'network', duration_ms: Date.now() - t0 });
+        vout.innerHTML = '<div class="verdict bad"><p class="v-head">' + ICONS.missing + '<span>' + I18N.networkError + '</span></p></div>';
+      });
   });
 </script>
 </body>
-</html>`;
+</html>`, CAMPAIGN);
 }
